@@ -1,7 +1,7 @@
 const transformations = require("./transformations"),
     logging = require("./logging"),
     path = require("path"),
-    fs = require("fs")
+    fs = require("fs"),
     util = require("util");
 
 function buildOptionsObject() {
@@ -141,7 +141,7 @@ function synthesizePredicate(options) {
     var replay_idx = options.replay_idx;
 
     if (typeof predicate.init === 'function')
-        predicate.init(predicate_args);
+        predicate.init(options.predicate_args);
 
     // if no predicate module was specified, synthesise one from the other options
     if (!predicate.test) {

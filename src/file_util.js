@@ -59,12 +59,13 @@ function du_sb (file) {
 }
 
 //Return path to file if copy was successful. Return undefined otherwise.
-function copyToOut(src, out, multiFileMode) {
+function copyToOut(src, out) {
     try {
         fs.copySync(src, out);
         fs.statSync(out)
         return out;
-    } catch (err) {
+    } catch (err){
+        return undefined;
     }
 }
 

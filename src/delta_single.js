@@ -1,9 +1,6 @@
 var fs = require("fs-extra"),
     util = require("util"),
-    esprima = require("esprima"),
-    escodegen = require("escodegen"),
     estraverse = require("estraverse"),
-    tmp = require("tmp"),
     file_util = require("./file_util"),
     transformations = require("./transformations"),
     logging = require("./logging");

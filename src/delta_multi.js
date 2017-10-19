@@ -106,19 +106,6 @@ function main(options) {
         return files.sort();
     }
 
-    function listFilesRecursively(file) {
-        var subFiles = [];
-        fs.readdirSync(file).forEach(function (child) {
-            var childFull = path.resolve(file, child);
-            if (fs.statSync(childFull).isDirectory()) {
-                subFiles = subFiles.concat(listFilesRecursively(childFull));
-            } else {
-                subFiles.push(childFull);
-            }
-        });
-        return subFiles;
-    }
-
     /**
      * Recursively pass through the file-hierarchy and invoke delta_single.main on all files
      *
@@ -172,8 +159,7 @@ function main(options) {
         process.exit(-1);
         //process.exit() does not guarentee immediate termination
         //so an infinite loop is inserted to avoid continuing the uninteded execution.
-        while (true) {
-        }
+        while (true) {}
     }
 }
 module.exports.reduce = main;
